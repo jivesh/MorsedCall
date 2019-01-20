@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_call.*
 import java.util.concurrent.TimeUnit
 import android.os.Handler
 import android.util.Log
+import androidx.core.os.postDelayed
 
 class CallActivity : AppCompatActivity() {
 
@@ -29,13 +30,13 @@ class CallActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if(messageTimer.messageStatus ==true) {
+        if(messageTimer.outgg ==true) {
             val tCurrent = System.currentTimeMillis()- messageTimer.outStart
             Log.d("Message sending", tCurrent.toString())
-            val tRemain: Long = 20000
+            val tRemain: Long = messageTimer.duration
             Handler().postDelayed({
                 OngoingCall.hangup()
-                messageTimer.messageStatus = false;
+                messageTimer.outgg = false;
             }, tRemain)
         } else {
             messageTimer.inStart = System.currentTimeMillis()

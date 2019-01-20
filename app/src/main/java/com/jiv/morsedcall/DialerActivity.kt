@@ -12,10 +12,15 @@ import android.telecom.TelecomManager.ACTION_CHANGE_DEFAULT_DIALER
 import android.telecom.TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME
 import androidx.core.content.systemService
 import androidx.core.net.toUri
+import com.jiv.morsedcall.messageTimer.numOutCalls
 import kotlinx.android.synthetic.main.activity_dialer.*
 
 object messageTimer {
-    public var messageStatus = false;
+    public var numInCalls = 0
+    public var numOutCalls = 0
+    public var outgg = false;
+    public var incmg = false;
+    public var duration: Long = 0;
     public var outStart: Long = 0
     public var inStart: Long = 0
 }
@@ -32,6 +37,12 @@ class DialerActivity : AppCompatActivity() {
         super.onStart()
         offerReplacingDefaultDialer()
 
+        if(messageTimer.outgg==true && messageTimer.numOutCalls<3)
+        {
+            messageTimer.duration = 12000
+            makeCall()
+        }
+
         phoneNumberInput.setOnEditorActionListener { _, _, _ ->
             makeCall()
             true
@@ -42,7 +53,7 @@ class DialerActivity : AppCompatActivity() {
         if (checkSelfPermission(this, CALL_PHONE) == PERMISSION_GRANTED) {
             val uri = "tel:${phoneNumberInput.text}".toUri()
             messageTimer.outStart = System.currentTimeMillis()
-            messageTimer.messageStatus = true
+            messageTimer.outgg = true
             startActivity(Intent(Intent.ACTION_CALL, uri))
         } else {
             requestPermissions(this, arrayOf(CALL_PHONE),
