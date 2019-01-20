@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".DialerActivity">
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/phoneNumberInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Message Receiver"
+                android:imeOptions="actionGo"
+                android:inputType="phone" />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+            android:text="Help!"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="461dp"
+            android:id="@+id/button" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <Button
+            android:text="Call me back"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="554dp"
+            android:id="@+id/button2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.497"/>
+    <Button
+            android:text="Can't talk now"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="645dp"
+            android:id="@+id/button3" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+            android:layout_width="109dp"
+            android:layout_height="78dp" app:srcCompat="@drawable/ic_message_black_24dp"
+            tools:layout_editor_absoluteY="167dp" android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

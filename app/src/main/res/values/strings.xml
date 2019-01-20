@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Simple Phone</string>
+    <string name="app_name">Morsed Call</string>
     <string name="call_input_hint">Call…</string>
+    <string name="msg3">My internet\'s busted, help me top up</string>
+    <string name="msg2">I\'m here at the meeting point, where are you?</string>
+    <string name="msg1">I\'ve reached home safely</string>
 </resources>
